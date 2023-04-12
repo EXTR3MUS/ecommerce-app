@@ -1,0 +1,25 @@
+.filtro-multiplo-container{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.nome-do-filtro{
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.opcoes-do-filtro{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin-left: 15px;
+}
