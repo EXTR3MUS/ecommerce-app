@@ -1,6 +1,8 @@
 import React from 'react'
 import './FiltroMultiploComponent.css'
 
+// essa funcao recebe uma funcao changeState para mudar o estado do componente pai
+
 const FiltroMultiploComponent = (props) => {
   return (
     <div className='filtro-multiplo-container'>
@@ -10,7 +12,7 @@ const FiltroMultiploComponent = (props) => {
             {props.opcoes.map((opcao) => {
                 return (
                     <div className="opcao-do-filtro">
-                        <input type="checkbox" />
+                        <input type="checkbox" group={props.groupName}/>
                         <span>{opcao}</span>
                     </div>
                 );

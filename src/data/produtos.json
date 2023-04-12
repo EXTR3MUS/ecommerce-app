@@ -1,0 +1,38 @@
+
+[
+    {
+        "id": 1,
+        "nome": "Produto 1",
+        "preco": 10.00,
+        "precoDesconto": 5.00,
+        "taxaDesconto": 50,
+        "imagem": "https://picsum.photos/300/200",
+        "descricao": "Loren ipsum dolor sit amet, consectetur adipiscing elit...",
+        "marca": "Marca 1",
+        "condicao": "new",
+        "categoria": "Categoria 1",
+        "entregaGratis": true
+    },
+    {
+        "id": 2,
+        "nome": "Produto 2",
+        "preco": 20.00,
+        "imagem": "https://picsum.photos/300/200",
+        "descricao": "Loren ipsum dolor sit amet, consectetur adipiscing elit...",
+        "marca": "Marca 1",
+        "condicao": "new",
+        "categoria": "Categoria 1",
+        "entregaGratis": false
+    },
+    {
+        "id": 3,
+        "nome": "Produto 3",
+        "preco": 200.00,
+        "imagem": "https://picsum.photos/300/200",
+        "descricao": "Loren ipsum dolor sit amet, consectetur adipiscing elit...",
+        "marca": "Marca 1",
+        "condicao": "new",
+        "categoria": "Categoria 1",
+        "entregaGratis": true
+    }
+]

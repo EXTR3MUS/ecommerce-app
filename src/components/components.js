@@ -3,3 +3,4 @@ export { default as FiltroSimplesComponent } from './FiltroSimplesComponent';
 export { default as FiltroMultiploComponent } from './FiltroMultiploComponent';
 export { default as HeaderSection } from './HeaderSection';
 export { default as ProdutoComponent } from './ProdutoComponent';
+export { default as SeletorDePrecoComponent } from './SeletorDePrecoComponent';
