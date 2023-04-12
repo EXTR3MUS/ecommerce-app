@@ -32,6 +32,7 @@ const App = () => {
             <HeaderSection />
             <div className="main-container">
                 <div className="filtros-section">
+                    <FiltroSimplesComponent nome="Frete Grátis" />
                     <FiltroMultiploComponent nome="Cor" opcoes={['Azul', 'Vermelho', 'Verde']} />
                 </div>
                 <div className="produtos-section">

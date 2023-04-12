@@ -1,0 +1,14 @@
+.filtro-simples-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    width: 200px;
+}
+
+.nome-do-filtro-simples{
+    font-size: 20px;
+    font-weight: 600;
+}
