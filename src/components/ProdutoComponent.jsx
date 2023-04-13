@@ -27,7 +27,7 @@ const ProdutoComponent = (props) => {
         }
         <div className="produto-descricao"> {props.descricao} </div>
         <div className="produto-adicionar">
-            <button className="button-produto-adicionar">Adicionar ao carrinho</button>
+            <button className="button-produto-adicionar" onClick={props.addToCart} productId={props.productId}>Adicionar ao carrinho</button>
         </div>
     </div>
   )

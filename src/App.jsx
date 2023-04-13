@@ -44,11 +44,7 @@ const App = () => {
             filtros_condicao: getCondicoesFromJson(array_de_produtos),
             filtros_categorias: getCategoriasFromJson(array_de_produtos),
 
-            cart: [
-                    {id: 1, nome: "teste1", valor: 10, qtd: 1, imagem: "https://picsum.photos/200/300"},
-                    {id: 2, nome: "teste2", valor: 10, qtd: 2, imagem: "https://picsum.photos/200/300"},
-                    {id: 3, nome: "teste3", valor: 10, qtd: 3, imagem: "https://picsum.photos/200/300"}
-                ]
+            cart: []
         });
     }, []);
 
@@ -89,6 +85,50 @@ const App = () => {
         setState({
             ...state,
             [group_name]: state_value
+        });
+    }
+
+    const handleAddToCart = (event) => {
+        const id = event.target.getAttribute('productId');
+
+        console.log('product_id', id)
+        console.log('event.target', event.target)
+
+        const produto = array_de_produtos.find((produto) => produto.id === parseInt(id));
+
+        const cart = state.cart;
+
+        const index = cart.findIndex((produto) => produto.id === parseInt(id));
+
+        if (index > -1){
+            cart[index].qtd = cart[index].qtd + 1;
+        } else {
+            cart.push({...produto, qtd: 1});
+        }
+
+        setState({
+            ...state,
+            cart: cart
+        });
+    }
+
+    const handleRemoveFromCart = (event) => {
+        const id = event.target.getAttribute('value');
+
+        const cart = state.cart;
+
+        const index = cart.findIndex((produto) => produto.id === parseInt(id));
+
+        if (index > -1){
+            cart[index].qtd = cart[index].qtd - 1;
+            if (cart[index].qtd === 0){
+                cart.splice(index, 1);
+            }
+        }
+
+        setState({
+            ...state,
+            cart: cart
         });
     }
 
@@ -192,8 +232,7 @@ const App = () => {
 
     return (
         <div className="App" style={{height: 120+array_de_produtos.length*470+"px"}}>
-            <HeaderSection changeState={handleBusca} inputValue={state.nome} />
-            <CartComponent produtos={state.cart} />
+            <HeaderSection changeState={handleBusca} inputValue={state.nome} produtos={state.cart} removerProduto={handleRemoveFromCart} />
             <div className="main-container">
                 <div className="filtros-section">
                     <FiltroSimplesComponent nome="Promoções" state_name="promocao" changeState={handleFiltroSimples} />
@@ -226,6 +265,7 @@ const App = () => {
                         return (
                             <ProdutoComponent
                                 key={produto.id}
+                                productId={produto.id}
                                 nome={produto.nome}
                                 precoSemDesconto={produto.precoSemDesconto}
                                 taxaDesconto={produto.taxaDesconto}
@@ -233,6 +273,7 @@ const App = () => {
                                 imagem={produto.imagem}
                                 descricao={produto.descricao}
                                 entregaGratis={produto.entregaGratis}
+                                addToCart={handleAddToCart}
                             />
                         );
                     }) }
