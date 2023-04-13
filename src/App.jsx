@@ -36,7 +36,7 @@ const App = () => {
 
     // criando funcao para criar os campos dos filtros a partir do json
     useEffect(() => {
-        console.log(getMarcasFromJson(array_de_produtos));
+        console.log(array_de_produtos.map((obj) => obj.imagem));
 
         setState({
             ...state,
