@@ -28,6 +28,17 @@ export function getIntersectionById(...arrays) {
     return arrays[0].filter(item => intersectionSet.has(item.id));
 }
 
+export function getUnionById(...arrays) {
+    const idSets = arrays.map(array => new Set(array.map(item => item.id)));
+    const unionSet = new Set(idSets[0]);
+    idSets.slice(1).forEach(idSet => {
+        idSet.forEach(id => {
+            unionSet.add(id);
+        });
+    });
+    return arrays[0].filter(item => unionSet.has(item.id));
+}
+
 
 
 export function symmetricDifference(setA, setB) {

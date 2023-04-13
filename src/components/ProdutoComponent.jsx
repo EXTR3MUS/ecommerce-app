@@ -11,10 +11,10 @@ const ProdutoComponent = (props) => {
         </div>
         <div className="produto-nome">{props.nome}</div>
 
-        { props.precoDesconto && 
+        { props.precoSemDesconto && 
             <div className="preco-desconto-container">
-                <div className="produto-preco-desconto">{MoedaFmt.format(props.precoDesconto)}</div>
-                <div className="produto-taxa-desconto">{props.taxaDesconto}%</div>
+                <div className="produto-preco-desconto">{MoedaFmt.format(props.precoSemDesconto)}</div>
+                <div className="produto-taxa-desconto">{((props.precoSemDesconto-props.preco)*100/props.precoSemDesconto).toFixed()}%</div>
             </div>
         }
 
