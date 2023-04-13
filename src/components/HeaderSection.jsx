@@ -9,7 +9,11 @@ const HeaderSection = () => {
             <span>Busque seu produto</span>
             <input className='input-busca' type="text" />
         </div>
-        <div className="carrinho-header">C</div>
+        <div className="carrinho-header">
+          <i class="fa-solid fa-cart-shopping" style={{color: "#5f5f5f"}}></i>
+          <div className="qtd-carrinho-header">0</div>
+        
+        </div>
     </div>
   )
 }

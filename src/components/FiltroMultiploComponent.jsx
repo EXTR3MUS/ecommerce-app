@@ -12,7 +12,7 @@ const FiltroMultiploComponent = (props) => {
             {props.opcoes.map((opcao) => {
                 return (
                     <div className="opcao-do-filtro">
-                        <input type="checkbox" group={props.groupName}/>
+                        <input type="checkbox" group_name={props.groupName} onChange={props.changeState} value={opcao} />
                         <span>{opcao}</span>
                     </div>
                 );

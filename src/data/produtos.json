@@ -8,9 +8,9 @@
         "taxaDesconto": 50,
         "imagem": "https://picsum.photos/300/200",
         "descricao": "Loren ipsum dolor sit amet, consectetur adipiscing elit...",
-        "marca": "Marca 1",
-        "condicao": "new",
-        "categoria": "Categoria 1",
+        "marca": "Evga",
+        "condicao": "New",
+        "categoria": "Placa de vídeo",
         "entregaGratis": true
     },
     {
@@ -19,9 +19,9 @@
         "preco": 20.00,
         "imagem": "https://picsum.photos/300/200",
         "descricao": "Loren ipsum dolor sit amet, consectetur adipiscing elit...",
-        "marca": "Marca 1",
-        "condicao": "new",
-        "categoria": "Categoria 1",
+        "marca": "Redragon",
+        "condicao": "New",
+        "categoria": "Headset",
         "entregaGratis": false
     },
     {
@@ -30,9 +30,9 @@
         "preco": 200.00,
         "imagem": "https://picsum.photos/300/200",
         "descricao": "Loren ipsum dolor sit amet, consectetur adipiscing elit...",
-        "marca": "Marca 1",
-        "condicao": "new",
-        "categoria": "Categoria 1",
+        "marca": "Evga",
+        "condicao": "Semi",
+        "categoria": "Teclado",
         "entregaGratis": true
     }
 ]
