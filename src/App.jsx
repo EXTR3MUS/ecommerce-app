@@ -12,6 +12,7 @@ import './App.css';
 import array_de_produtos from './data/produtos.json';
 
 import { useState, useEffect } from 'react';
+import CartComponent from './components/CartComponent.jsx';
 
 
 const App = () => {
@@ -28,7 +29,9 @@ const App = () => {
 
         filtros_marcas: [],
         filtros_condicao: [],
-        filtros_categorias: []
+        filtros_categorias: [],
+
+        cart: []
     });
 
     // criando funcao para criar os campos dos filtros a partir do json
@@ -39,7 +42,13 @@ const App = () => {
             ...state,
             filtros_marcas: getMarcasFromJson(array_de_produtos),
             filtros_condicao: getCondicoesFromJson(array_de_produtos),
-            filtros_categorias: getCategoriasFromJson(array_de_produtos)
+            filtros_categorias: getCategoriasFromJson(array_de_produtos),
+
+            cart: [
+                    {id: 1, nome: "teste1", valor: 10, qtd: 1, imagem: "https://picsum.photos/200/300"},
+                    {id: 2, nome: "teste2", valor: 10, qtd: 2, imagem: "https://picsum.photos/200/300"},
+                    {id: 3, nome: "teste3", valor: 10, qtd: 3, imagem: "https://picsum.photos/200/300"}
+                ]
         });
     }, []);
 
@@ -184,6 +193,7 @@ const App = () => {
     return (
         <div className="App" style={{height: 120+array_de_produtos.length*470+"px"}}>
             <HeaderSection changeState={handleBusca} inputValue={state.nome} />
+            <CartComponent produtos={state.cart} />
             <div className="main-container">
                 <div className="filtros-section">
                     <FiltroSimplesComponent nome="Promoções" state_name="promocao" changeState={handleFiltroSimples} />
