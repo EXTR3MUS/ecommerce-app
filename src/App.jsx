@@ -11,12 +11,11 @@ import {union, getIntersectionById} from './utils.js';
 import './App.css';
 import array_de_produtos from './data/produtos.json';
 
-// importing usestate
 import { useState, useEffect } from 'react';
 
 
 const App = () => {
-    // creating a state
+    // criando estados
     const [state, setState] = useState({
         promocao: false,
         entrega_gratis: false,
@@ -32,7 +31,7 @@ const App = () => {
         filtros_categorias: []
     });
 
-    // creating a function to get the filters from the json
+    // criando funcao para criar os campos dos filtros a partir do json
     useEffect(() => {
         console.log(getMarcasFromJson(array_de_produtos));
 
@@ -59,23 +58,19 @@ const App = () => {
         return Array.from(union(categorias, categorias));
     }
 
-    // creating a function to change the state of the checkboxes
+    // criando funcao para lidar com a troca de estado dos filtros multiplos
     const handleFiltroMultiplo = (event) => {
         console.log("changed");
 
-        // getting custom attribute
         const group_name = event.target.getAttribute('group_name');
 
-        // getting the value of the checkbox
         const value = event.target.value;
 
-        // getting the state
         const state_value = state[group_name];
 
-        // checking if the value is already in the state
         const index = state_value.indexOf(value);
 
-        // if the value is already in the state, remove it
+        // se ja existe o valor, remover
         if (index > -1){
             state_value.splice(index, 1);
         } else {
@@ -91,7 +86,7 @@ const App = () => {
     const handleFiltroSimples = (event) => {
         console.log("changed");
 
-        // getting custom attribute
+        // capturando valor do atributo customizado
         const state_name = event.target.getAttribute('state_name');
 
         setState({
@@ -118,7 +113,7 @@ const App = () => {
 
         console.log('value', value)
         
-        // getting custom attribute
+        // capturando valor do atributo customizado
         const state_name = event.target.getAttribute('state_name');
 
         setState({
@@ -145,9 +140,10 @@ const App = () => {
     }
 
 
-    // creating a function to filter the products
-    const filtroPromocao = (produto) => state.promocao == false ? true : (produto.precoSemDesconto !== undefined);
-    const filtroFrete = (produto) => state.entrega_gratis == false ? true : (produto.entregaGratis === true);
+    // criando funcoes de fitro, internamente cada filtro usa a logica "ou"
+    // ja entre o conjunto de filtros usa-se a logica "e"
+    const filtroPromocao = (produto) => state.promocao === false ? true : (produto.precoSemDesconto !== undefined);
+    const filtroFrete = (produto) => state.entrega_gratis === false ? true : (produto.entregaGratis === true);
     const filtroMarcas = (produto) => state.marcas.length === 0 ? true : state.marcas.includes(produto.marca);
     const filtroCondicao = (produto) => state.condicao.length === 0 ? true : state.condicao.includes(produto.condicao);
     const filtroCategorias = (produto) => state.categorias.length === 0 ? true : state.categorias.includes(produto.categoria);
@@ -166,6 +162,7 @@ const App = () => {
 
     const filtroNome = (produto) => state.nome === "" ? true : produto.nome.toLowerCase().includes(state.nome.toLowerCase());
 
+    // criando funcao para obter a intersecao entre os conjuntos
     const getArrayDeProdutosFiltrado = (arrayDeProdutos) => {
         const filtradoMarcas = arrayDeProdutos.filter(filtroMarcas);
         const filtradoCondicao = arrayDeProdutos.filter(filtroCondicao);

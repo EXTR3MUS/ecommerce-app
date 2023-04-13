@@ -1,8 +1,7 @@
 import React from 'react'
 import './FiltroMultiploComponent.css'
 
-// essa funcao recebe uma funcao changeState para mudar o estado do componente pai
-
+// componente recebe uma callback changeState para mudar o estado do componente pai
 const FiltroMultiploComponent = (props) => {
   return (
     <div className='filtro-multiplo-container'>
