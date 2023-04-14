@@ -47,7 +47,6 @@ const HeaderSection = (props) => {
               <i class="fa-solid fa-search" style={{color: "#3636ac"}} onClick={props.changeState}></i>
             </div>
         </div>
-        <button onClick={toggleCart}></button>
         <div className="carrinho-header">
           <i class="fa-solid fa-cart-shopping" style={{color: "#5f5f5f", fontSize: "1.5rem"}} onClick={toggleCart}></i>
           <div className="qtd-carrinho-header" style={{pointerEvents: "none"}}>{getNumberOfProducts()}</div>
